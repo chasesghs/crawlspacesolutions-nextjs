@@ -48,9 +48,8 @@ export function Hero() {
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button size="default" asChild className="w-full sm:w-auto text-sm px-6 py-5">
-              <a href={PHONE_HREF}>
-                <Phone className="mr-2 h-4 w-4" />
-                Free Inspection
+              <a href="/contact">
+                Schedule a Free Crawl Space Inspection
               </a>
             </Button>
             <Button size="default" variant="outline" asChild className="w-full sm:w-auto text-sm px-6 py-5 border-border hover:bg-muted">
@@ -61,7 +60,7 @@ export function Hero() {
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            Call or text: <a href={PHONE_HREF} className="text-primary hover:underline">{PHONE_NUMBER}</a>
+            Prefer to call or text? <a href={PHONE_HREF} className="text-primary hover:underline">{PHONE_NUMBER}</a>
           </p>
         </div>
       </div>

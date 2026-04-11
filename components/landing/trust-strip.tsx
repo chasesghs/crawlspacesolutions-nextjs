@@ -1,15 +1,15 @@
-import { Shield, MapPin, Clock, FileCheck } from "lucide-react"
+import { Shield, MapPin, Clock, FileCheck, Home } from "lucide-react"
 
 const trustItems = [
   {
-    icon: Shield,
-    title: "Licensed & Insured",
-    description: "Fully covered for your protection"
+    icon: MapPin,
+    title: "Locally Owned & Operated",
+    description: "Based in Central Missouri"
   },
   {
-    icon: MapPin,
-    title: "Local Operator",
-    description: "Based in Central Missouri"
+    icon: Home,
+    title: "Crawl Space & Foundation Focused",
+    description: "Not a general contractor — this is our specialty"
   },
   {
     icon: Clock,
@@ -18,16 +18,21 @@ const trustItems = [
   },
   {
     icon: FileCheck,
-    title: "No-Pressure Estimate",
-    description: "Honest pricing, no sales tactics"
-  }
+    title: "Free Inspections",
+    description: "No charge to assess your crawl space"
+  },
+  {
+    icon: Shield,
+    title: "Licensed & Insured",
+    description: "Fully covered for your protection"
+  },
 ]
 
 export function TrustStrip() {
   return (
     <section id="trust" className="py-10 border-y border-border/50">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
           {trustItems.map((item) => (
             <div key={item.title} className="flex flex-col items-center text-center">
               <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 mb-2">

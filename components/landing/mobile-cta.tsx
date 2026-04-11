@@ -11,14 +11,14 @@ export function MobileCTA() {
       <div className="flex gap-3">
         <a
           href={PHONE_HREF}
-          className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors"
+          className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors"
         >
           <Phone className="h-5 w-5" />
-          Call Now
+          Call (573) 607-5910
         </a>
         <a
           href={SMS_HREF}
-          className="flex-1 flex items-center justify-center gap-2 bg-card text-foreground py-3 rounded-lg font-medium text-sm border border-border hover:border-primary/30 transition-colors"
+          className="flex-1 flex items-center justify-center gap-2 bg-card text-foreground py-3.5 rounded-lg font-semibold text-sm border border-border hover:border-primary/30 transition-colors"
         >
           <MessageSquare className="h-5 w-5" />
           Text Us

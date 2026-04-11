@@ -55,10 +55,13 @@ export default function ContactPage() {
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Contact Us
+                Schedule a Free Crawl Space Inspection
               </h1>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Ready to fix your crawl space? Get in touch for a free inspection and estimate.
+                Get in touch for a free inspection and honest quote. We&apos;ll show you exactly what&apos;s going on under your home and explain your options.
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">
+                Prefer to talk? <a href={PHONE_HREF} className="text-primary hover:underline font-medium">Call or text us</a> directly at {PHONE_NUMBER}.
               </p>
             </div>
           </div>
@@ -147,9 +150,12 @@ export default function ContactPage() {
               <div>
                 <Card className="bg-card border-border">
                   <CardContent className="p-6 md:p-8">
-                    <h2 className="font-semibold text-xl text-foreground mb-6">
-                      Request a Free Estimate
+                    <h2 className="font-semibold text-xl text-foreground mb-2">
+                      Schedule a Free Crawl Space Inspection
                     </h2>
+                    <p className="text-xs text-muted-foreground mb-4">
+                      Tell us about your crawl space and we&apos;ll follow up within 24 hours.
+                    </p>
                     
                     {formSubmitted ? (
                       <div className="text-center py-8">
@@ -157,10 +163,10 @@ export default function ContactPage() {
                           <CheckCircle className="h-8 w-8 text-primary" />
                         </div>
                         <h3 className="font-semibold text-lg text-foreground mb-2">
-                          Thank You!
+                          Message Sent!
                         </h3>
                         <p className="text-muted-foreground mb-6">
-                          We&apos;ve received your message and will get back to you within 24 hours.
+                          We&apos;ll reach out within 24 hours. Usually much sooner.
                         </p>
                         <Button variant="outline" onClick={() => setFormSubmitted(false)}>
                           Send Another Message
@@ -169,34 +175,14 @@ export default function ContactPage() {
                     ) : (
                       <form onSubmit={handleSubmit}>
                         <FieldGroup className="space-y-4">
-                          <div className="grid sm:grid-cols-2 gap-4">
-                            <Field>
-                              <FieldLabel htmlFor="firstName">First Name</FieldLabel>
-                              <Input 
-                                id="firstName" 
-                                name="firstName" 
-                                required 
-                                className="bg-input border-border"
-                              />
-                            </Field>
-                            <Field>
-                              <FieldLabel htmlFor="lastName">Last Name</FieldLabel>
-                              <Input 
-                                id="lastName" 
-                                name="lastName" 
-                                required 
-                                className="bg-input border-border"
-                              />
-                            </Field>
-                          </div>
                           <Field>
-                            <FieldLabel htmlFor="email">Email</FieldLabel>
+                            <FieldLabel htmlFor="name">Name</FieldLabel>
                             <Input 
-                              id="email" 
-                              name="email" 
-                              type="email" 
+                              id="name" 
+                              name="name" 
                               required 
                               className="bg-input border-border"
+                              placeholder="Your name"
                             />
                           </Field>
                           <Field>
@@ -207,19 +193,11 @@ export default function ContactPage() {
                               type="tel" 
                               required 
                               className="bg-input border-border"
+                              placeholder="(555) 555-5555"
                             />
                           </Field>
                           <Field>
-                            <FieldLabel htmlFor="address">Property Address</FieldLabel>
-                            <Input 
-                              id="address" 
-                              name="address" 
-                              placeholder="City, State" 
-                              className="bg-input border-border"
-                            />
-                          </Field>
-                          <Field>
-                            <FieldLabel htmlFor="message">How can we help?</FieldLabel>
+                            <FieldLabel htmlFor="message">How can we help? <span className="text-muted-foreground font-normal">(optional)</span></FieldLabel>
                             <Textarea 
                               id="message" 
                               name="message" 
@@ -228,13 +206,16 @@ export default function ContactPage() {
                               className="bg-input border-border resize-none"
                             />
                           </Field>
+                          <div className="text-xs text-muted-foreground mb-2">
+                            We&apos;ll reach out within 24 hours. Usually much sooner.
+                          </div>
                           <Button 
                             type="submit" 
                             className="w-full" 
                             size="lg"
                             disabled={isSubmitting}
                           >
-                            {isSubmitting ? "Sending..." : "Request Free Estimate"}
+                            {isSubmitting ? "Sending..." : "Schedule a Free Crawl Space Inspection"}
                           </Button>
                         </FieldGroup>
                       </form>
