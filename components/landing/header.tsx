@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Phone, MessageSquare, Menu, X } from "lucide-react"
@@ -19,27 +19,14 @@ const navLinks = [
 ]
 
 const ANGI_URL = "https://www.angi.com/companylist/us/mo/osage-beach/safeguard-home-solutions-reviews-1.htm"
+const GOOGLE_URL = "https://www.google.com/maps?cid=3113788047082069089"
 
 function AnnouncementBar() {
-  const [isVisible, setIsVisible] = useState(true)
-  
-  useEffect(() => {
-    // Subtle shimmer effect on mount
-    const interval = setInterval(() => {
-      setIsVisible(prev => prev)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <div className="bg-primary/10 border-b border-primary/20 overflow-hidden">
-      <div className="relative py-2 px-4">
-        {/* Animated shimmer overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-shimmer" />
-        <p className="text-center text-sm italic text-primary font-medium relative z-10">
-          Missouri&apos;s leading provider of affordable crawl space solutions.
-        </p>
-      </div>
+    <div className="bg-primary/10 border-b border-primary/20">
+      <p className="py-2 px-4 text-center text-sm italic text-primary font-medium">
+        Trusted crawl space repair and encapsulation for Central Missouri homeowners.
+      </p>
     </div>
   )
 }
@@ -56,10 +43,10 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
-                src="/images/logo-header.png"
+                src="/images/logo-header-cropped.png"
                 alt="Crawl Space Solutions"
                 width={280}
-                height={70}
+                height={55}
                 className="h-14 w-auto"
                 priority
               />
@@ -91,7 +78,7 @@ export function Header() {
                 className="flex items-center gap-1 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
               >
                 <span className="text-primary">Angi</span>
-                <span className="text-foreground/60">Certified</span>
+                <span className="text-foreground/60">Reviews</span>
               </a>
               <Button 
                 variant="ghost" 
