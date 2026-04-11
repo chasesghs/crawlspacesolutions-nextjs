@@ -1,7 +1,4 @@
-import { Check, Phone } from "lucide-react"
-
-const PHONE_HREF = "tel:+15736075910"
-const PHONE_NUMBER = "(573) 607-5910"
+import { Check } from "lucide-react"
 
 const reasons = [
   "You've tried ignoring it—but the smell keeps getting worse.",
@@ -9,15 +6,14 @@ const reasons = [
   "You want someone local who will show up and do the job right.",
   "Your energy bills are climbing and your floors are always cold.",
   "You're tired of worrying about mold affecting your family's health.",
-  "You need a real solution, not a quick patch that fails in a year."
+  "You need a real solution, not a quick patch that fails in a year.",
 ]
 
 export function WhyUs() {
   return (
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        {/* 2-col grid: col 1 = heading, col 2 = reasons */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-6 lg:mb-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
               Why Homeowners Call Us
@@ -38,17 +34,7 @@ export function WhyUs() {
             ))}
           </div>
         </div>
-
-        {/* CTA nudge — full width, natural placement */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors">
-            Schedule a Free Inspection
-          </a>
-          <a href={PHONE_HREF} className="inline-flex items-center justify-center px-5 py-2.5 bg-card text-foreground font-medium text-sm rounded-lg border border-border hover:border-primary/30 transition-colors">
-            <Phone className="h-4 w-4 mr-2" />
-            Call {PHONE_NUMBER}
-          </a>
-        </div>
+        {/* No CTA block — the mid-page CTA and final CTA handle conversion */}
       </div>
     </section>
   )
