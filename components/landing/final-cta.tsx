@@ -30,7 +30,7 @@ export function FinalCTA() {
           {/* Left side - CTA */}
           <div>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
-              Ready to Fix Your Crawl Space?
+              Schedule a Free Crawl Space Inspection
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Call or text us today. We&apos;ll schedule a free inspection, show you exactly what&apos;s going on under your home, and give you an honest quote.
@@ -47,14 +47,10 @@ export function FinalCTA() {
               <Button size="sm" variant="outline" asChild className="text-xs px-4 py-4 border-border hover:bg-muted">
                 <a href={SMS_HREF}>
                   <MessageSquare className="mr-2 h-4 w-4" />
-                  Text Us Photos
+                  Text (573) 607-5910
                 </a>
               </Button>
             </div>
-
-            <p className="mt-4 text-xs text-muted-foreground">
-              Text photos of your crawl space for a faster quote.
-            </p>
           </div>
 
           {/* Right side - Form */}
@@ -118,7 +114,7 @@ export function FinalCTA() {
                     ) : (
                       <>
                         <Send className="mr-2 h-4 w-4" />
-                        Send Message
+                        Schedule a Free Crawl Space Inspection
                       </>
                     )}
                   </Button>
