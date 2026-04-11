@@ -7,17 +7,11 @@ import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { MobileCTA } from "@/components/landing/mobile-cta"
 
-export const metadata: Metadata = {
-  title: "Our Services | Crawl Space Solutions Missouri",
-  description: "Professional crawl space encapsulation, vapor barrier installation, drainage systems, mold remediation, and insulation services for Central Missouri homes.",
-  keywords: "crawl space encapsulation, vapor barrier, drainage systems, mold remediation, insulation, Central Missouri",
-  openGraph: {
-    title: "Our Services | Crawl Space Solutions Missouri",
-    description: "Professional crawl space encapsulation, vapor barrier installation, drainage systems, mold remediation, and insulation services.",
-    url: "https://crawlspacesolutionsmo.com/services",
-    siteName: "Crawl Space Solutions",
-    type: "website",
-  },
+export const metadata = {
+  title: "Crawl Space Repair & Encapsulation | Central Missouri",
+  description:
+    "Crawl Space Solutions provides professional repair, encapsulation, vapor barriers, and moisture control for homes across Central Missouri — Lake of the Ozarks, Jefferson City, Columbia, and surrounding areas. Licensed, insured, and locally operated.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com" },
 }
 
 const services = [

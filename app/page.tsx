@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
 import { TrustStrip } from "@/components/landing/trust-strip"
@@ -15,6 +16,13 @@ import { MobileCTA } from "@/components/landing/mobile-cta"
 
 const PHONE_HREF = "tel:+15736075910"
 const PHONE_NUMBER = "(573) 607-5910"
+
+export const metadata: Metadata = {
+  title: "Crawl Space Solutions | Central Missouri Crawl Space Repair & Encapsulation",
+  description:
+    "Professional crawl space repair, encapsulation, vapor barrier installation, and moisture control for homes across Central Missouri — Lake of the Ozarks, Jefferson City, Columbia, and surrounding areas. Licensed, insured, locally operated. Call (573) 607-5910 for a free inspection.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com" },
+}
 
 export default function Home() {
   return (

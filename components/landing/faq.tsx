@@ -4,71 +4,92 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from "next/link"
 
 const faqs = [
   {
     question: "How much does crawl space encapsulation cost?",
-    answer: "Costs vary based on the size of your crawl space, condition, and what work is needed. Most full encapsulation projects run between $5,000 and $15,000. We provide free inspections and detailed quotes—no surprises."
+    answer:
+      "Costs vary based on the size of your crawl space, condition, and what work is needed. Most full encapsulation projects run between $5,000 and $15,000. We provide free inspections and detailed quotes—no surprises.",
+    href: "/contact",
   },
   {
     question: "How long does the work take?",
-    answer: "Most jobs take 1-3 days depending on scope. A basic vapor barrier install might be done in a day. Full encapsulation with drainage and dehumidifier typically takes 2-3 days."
+    answer:
+      "Most jobs take 1-3 days depending on scope. A basic vapor barrier install might be done in a day. Full encapsulation with drainage and dehumidifier typically takes 2-3 days.",
+    href: null,
   },
   {
     question: "Do you offer financing?",
-    answer: "Yes, we work with financing partners to make crawl space repair accessible. Ask about payment options when you get your quote."
+    answer:
+      "Yes, we work with financing partners to make crawl space repair accessible. Ask about payment options when you get your quote.",
+    href: "/contact",
   },
   {
-    question: "Will this fix my musty smell?",
-    answer: "In most cases, yes. The musty smell comes from moisture and mold in the crawl space. Properly sealing and controlling moisture eliminates the source of the odor."
+    question: "Will this fix the musty smell in my house?",
+    answer:
+      "In most cases, yes. Once we seal the crawl space and control moisture, the source of the odor is eliminated. Most homeowners notice a significant difference within days.",
+    href: "/services",
   },
   {
-    question: "Do I need a dehumidifier?",
-    answer: "It depends on your crawl space. If humidity stays consistently above 60% after encapsulation, a dehumidifier is recommended. We'll assess your specific situation during the inspection."
+    question: "Do I need to be home during the work?",
+    answer:
+      "Not necessarily. Most work is done in the crawl space, so we primarily need access to your property and any exterior access points. We'll let you know if there are specific things we need from you.",
+    href: null,
   },
   {
-    question: "What's the difference between vapor barrier and encapsulation?",
-    answer: "A vapor barrier is just the liner on the floor. Full encapsulation includes the liner up the walls, sealed vents, and often a dehumidifier—creating a fully conditioned space."
+    question: "What is a vapor barrier and do I need one?",
+    answer:
+      "A vapor barrier is a heavy-duty plastic sheet installed over the soil in your crawl space. It blocks moisture from evaporating up into the space. If you have moisture problems, condensation, or mold in your crawl space, a vapor barrier is usually the first step.",
+    href: "/services",
   },
-  {
-    question: "Do you warranty your work?",
-    answer: "Yes. We stand behind our workmanship. Specific warranty terms depend on the work performed—we'll cover this in your quote."
-  },
-  {
-    question: "Can you just fix part of my crawl space?",
-    answer: "Sometimes, yes. If the problem is localized—like a single drainage issue or damaged section—we can address just that area. We'll recommend the most practical solution."
-  }
 ]
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-12 md:py-16">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-12 md:py-16 bg-muted/20">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
             Common Questions
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Straight answers to what homeowners want to know.
+            Quick answers before you decide to reach out.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-2">
+        <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`}
-              className="bg-card border border-border rounded-md px-4 data-[state=open]:border-primary/30 transition-colors"
-            >
-              <AccordionTrigger className="text-left text-sm text-foreground hover:no-underline py-3">
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left text-sm font-medium text-foreground hover:text-primary transition-colors">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-xs text-muted-foreground pb-3">
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
                 {faq.answer}
+                {faq.href && (
+                  <span>
+                    {" "}
+                    <Link href={faq.href} className="text-primary font-medium hover:underline">
+                      {faq.href === "/contact" ? "Get in touch →" : "Learn more about our services →"}
+                    </Link>
+                  </span>
+                )}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
+
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground mb-3">
+            Have another question? We answer the phone.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Ask a Question
+          </Link>
+        </div>
       </div>
     </section>
   )
