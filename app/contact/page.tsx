@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Phone, Mail, MapPin, MessageSquare, Clock, CheckCircle } from "lucide-react"
+import { Phone, Mail, MapPin, MessageSquare, Clock, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -33,16 +33,49 @@ const serviceAreas = [
 ]
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+    source: "",
+  })
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const resetForm = () => {
+    setFormData({ name: "", phone: "", email: "", message: "", source: "" })
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setFormSubmitted(true)
-    setIsSubmitting(false)
+    setSubmitError(null)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, source: window.location.pathname }),
+      })
+
+      if (response.ok) {
+        resetForm()
+        setFormSubmitted(true)
+      } else {
+        const payload = await response.json()
+        setSubmitError(payload.error || "Something went wrong. Please try again or call us directly.")
+      }
+    } catch {
+      setSubmitError("Unable to send your message. Please check your connection or call us directly at (573) 607-5910.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -148,78 +181,149 @@ export default function ContactPage() {
 
               {/* Contact Form */}
               <div>
-                <Card className="bg-card border-border">
+                <Card className="bg-card border-border relative overflow-hidden">
+                  {/* Success Overlay — elevated modal-light confirmation */}
+                  {formSubmitted && (
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md text-center px-8 rounded-lg">
+                      {/* Glowing success ring */}
+                      <div className="relative mb-6">
+                        <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl scale-125" />
+                        <div className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
+                          <CheckCircle className="h-10 w-10 text-primary" />
+                        </div>
+                      </div>
+
+                      <h3 className="font-semibold text-2xl text-foreground mb-3">
+                        Message Sent!
+                      </h3>
+                      <p className="text-muted-foreground text-base max-w-sm mx-auto mb-8 leading-relaxed">
+                        Thanks — your message was sent successfully. We&apos;ll be in touch soon.
+                      </p>
+
+                      <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <Button
+                          variant="outline"
+                          className="flex-1 sm:flex-none"
+                          onClick={() => setFormSubmitted(false)}
+                        >
+                          Send Another Message
+                        </Button>
+                        <a href={PHONE_HREF} className="flex-1 sm:flex-none">
+                          <Button variant="secondary" className="w-full gap-2">
+                            <Phone className="h-4 w-4" />
+                            Call (573) 607-5910
+                          </Button>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+
                   <CardContent className="p-6 md:p-8">
                     <h2 className="font-semibold text-xl text-foreground mb-2">
                       Schedule a Free Crawl Space Inspection
                     </h2>
-                    <p className="text-xs text-muted-foreground mb-4">
+                    <p className="text-xs text-muted-foreground mb-5">
                       Tell us about your crawl space and we&apos;ll follow up within 24 hours.
                     </p>
-                    
-                    {formSubmitted ? (
-                      <div className="text-center py-8">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mx-auto mb-4">
-                          <CheckCircle className="h-8 w-8 text-primary" />
+
+                    {submitError && (
+                      <div className="mb-5 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                        <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 shrink-0" />
+                        <div>
+                          <p className="text-red-700 text-sm font-medium mb-1">{submitError}</p>
+                          <a href={PHONE_HREF} className="text-red-600 text-xs hover:underline font-medium">
+                            Call (573) 607-5910
+                          </a>
                         </div>
-                        <h3 className="font-semibold text-lg text-foreground mb-2">
-                          Message Sent!
-                        </h3>
-                        <p className="text-muted-foreground mb-6">
-                          We&apos;ll reach out within 24 hours. Usually much sooner.
-                        </p>
-                        <Button variant="outline" onClick={() => setFormSubmitted(false)}>
-                          Send Another Message
-                        </Button>
                       </div>
-                    ) : (
-                      <form onSubmit={handleSubmit}>
-                        <FieldGroup className="space-y-4">
-                          <Field>
-                            <FieldLabel htmlFor="name">Name</FieldLabel>
-                            <Input 
-                              id="name" 
-                              name="name" 
-                              required 
-                              className="bg-input border-border"
-                              placeholder="Your name"
-                            />
-                          </Field>
-                          <Field>
-                            <FieldLabel htmlFor="phone">Phone</FieldLabel>
-                            <Input 
-                              id="phone" 
-                              name="phone" 
-                              type="tel" 
-                              required 
-                              className="bg-input border-border"
-                              placeholder="(555) 555-5555"
-                            />
-                          </Field>
-                          <Field>
-                            <FieldLabel htmlFor="message">How can we help? <span className="text-muted-foreground font-normal">(optional)</span></FieldLabel>
-                            <Textarea 
-                              id="message" 
-                              name="message" 
-                              rows={4} 
-                              placeholder="Describe your crawl space concerns..."
-                              className="bg-input border-border resize-none"
-                            />
-                          </Field>
-                          <div className="text-xs text-muted-foreground mb-2">
-                            We&apos;ll reach out within 24 hours. Usually much sooner.
-                          </div>
-                          <Button 
-                            type="submit" 
-                            className="w-full" 
-                            size="lg"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? "Sending..." : "Schedule a Free Crawl Space Inspection"}
-                          </Button>
-                        </FieldGroup>
-                      </form>
                     )}
+
+                    <form onSubmit={handleSubmit}>
+                      {/* Honeypot — hidden from users, catches bots */}
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        className="absolute -left-[9999px] w-px h-px"
+                        onChange={handleChange}
+                      />
+
+                      <FieldGroup className="space-y-4">
+                        <Field>
+                          <FieldLabel htmlFor="name">Name</FieldLabel>
+                          <Input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            autoComplete="name"
+                            className="bg-input border-border"
+                            placeholder="Your name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                          />
+                        </Field>
+                        <Field>
+                          <FieldLabel htmlFor="phone">Phone</FieldLabel>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            required
+                            autoComplete="tel"
+                            className="bg-input border-border"
+                            placeholder="(555) 555-5555"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                          />
+                        </Field>
+                        <Field>
+                          <FieldLabel htmlFor="email">Email <span className="text-muted-foreground font-normal">(optional)</span></FieldLabel>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            className="bg-input border-border"
+                            placeholder="your@email.com"
+                            value={formData.email}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                          />
+                        </Field>
+                        <Field>
+                          <FieldLabel htmlFor="message">How can we help?</FieldLabel>
+                          <Textarea
+                            id="message"
+                            name="message"
+                            rows={4}
+                            placeholder="Describe your crawl space concerns..."
+                            className="bg-input border-border resize-none"
+                            value={formData.message}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                          />
+                        </Field>
+                        <Button
+                          type="submit"
+                          className="w-full"
+                          size="lg"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? (
+                            <span className="flex items-center gap-2">
+                              <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Sending...
+                            </span>
+                          ) : (
+                            "Schedule a Free Crawl Space Inspection"
+                          )}
+                        </Button>
+                      </FieldGroup>
+                    </form>
                   </CardContent>
                 </Card>
 
