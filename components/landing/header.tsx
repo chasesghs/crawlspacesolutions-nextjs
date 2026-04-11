@@ -25,7 +25,7 @@ function AnnouncementBar() {
   return (
     <div className="bg-primary/10 border-b border-primary/20">
       <p className="py-2 px-4 text-center text-sm italic text-primary font-medium">
-        Missouri&apos;s leading provider of affordable crawl space solutions.
+        Trusted crawl space repair and encapsulation for Central Missouri homeowners.
       </p>
     </div>
   )
@@ -78,7 +78,7 @@ export function Header() {
                 className="flex items-center gap-1 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
               >
                 <span className="text-primary">Angi</span>
-                <span className="text-foreground/60">Certified</span>
+                <span className="text-foreground/60">Reviews</span>
               </a>
               <Button 
                 variant="ghost" 

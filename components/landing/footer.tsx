@@ -8,6 +8,7 @@ const EMAIL = "contact@crawlspacesolutionsmo.com"
 const SITE_URL = "https://crawlspacesolutionsmo.com"
 
 const ANGI_URL = "https://www.angi.com/companylist/us/mo/osage-beach/safeguard-home-solutions-reviews-1.htm"
+const GOOGLE_URL = "https://www.google.com/maps?cid=3113788047082069089"
 
 export function Footer() {
   return (
@@ -31,13 +32,13 @@ export function Footer() {
             </p>
             {/* Review Links */}
             <div className="flex flex-col gap-2">
-              <a 
+              <a
                 href={ANGI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
               >
-                <span>Angi Certified Pro</span>
+                <span>Read Reviews on Angi</span>
               </a>
               <a 
                 href={GOOGLE_URL}
