@@ -8,10 +8,10 @@ import { Footer } from "@/components/landing/footer"
 import { MobileCTA } from "@/components/landing/mobile-cta"
 
 export const metadata = {
-  title: "Crawl Space Repair & Encapsulation | Central Missouri",
+  title: "Crawl Space Repair & Encapsulation Services | Lake of the Ozarks, MO",
   description:
-    "Crawl Space Solutions provides professional repair, encapsulation, vapor barriers, and moisture control for homes across Central Missouri — Lake of the Ozarks, Jefferson City, Columbia, and surrounding areas. Licensed, insured, and locally operated.",
-  alternates: { canonical: "https://crawlspacesolutionsmo.com" },
+    "Professional crawl space repair, encapsulation, vapor barriers, and moisture control in Lake of the Ozarks, Central Missouri. Free inspection available. Call (573) 607-5910.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com/services" },
 }
 
 const services = [
@@ -94,11 +94,10 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Our Services
+                Crawl Space Repair & Encapsulation Services
               </h1>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We provide comprehensive crawl space solutions designed to protect your home from moisture, 
-                mold, and structural damage.
+                From heavy-duty encapsulation to targeted repairs, we handle every crawl space issue across Lake of the Ozarks, Jefferson City, Columbia, and Central Missouri.
               </p>
             </div>
           </div>
@@ -130,6 +129,26 @@ export default function ServicesPage() {
                     </ul>
                   </CardContent>
                 </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Related Services — lateral internal linking */}
+        <section className="pb-10 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h3 className="text-sm font-semibold text-foreground mb-3">Explore Related Services</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: "Crawl Space Encapsulation", sub: "Full sealing with vapor barrier" },
+                { label: "Moisture Control", sub: "Humidity management & drainage" },
+                { label: "Mold Remediation", sub: "Safe removal and prevention" },
+                { label: "Foundation Repair", sub: "Crack repair & stabilization" },
+              ].map((s) => (
+                <div key={s.label} className="p-3 rounded border border-border bg-card text-center">
+                  <span className="text-xs font-semibold text-foreground block">{s.label}</span>
+                  <span className="text-[11px] text-muted-foreground">{s.sub}</span>
+                </div>
               ))}
             </div>
           </div>

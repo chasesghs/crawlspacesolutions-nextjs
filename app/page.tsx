@@ -18,9 +18,9 @@ const PHONE_HREF = "tel:+15736075910"
 const PHONE_NUMBER = "(573) 607-5910"
 
 export const metadata: Metadata = {
-  title: "Crawl Space Solutions | Central Missouri Crawl Space Repair & Encapsulation",
+  title: "Crawl Space Repair & Encapsulation in Lake of the Ozarks, MO | Free Inspection",
   description:
-    "Professional crawl space repair, encapsulation, vapor barrier installation, and moisture control for homes across Central Missouri — Lake of the Ozarks, Jefferson City, Columbia, and surrounding areas. Licensed, insured, locally operated. Call (573) 607-5910 for a free inspection.",
+    "Professional crawl space repair, encapsulation, and moisture control in Lake of the Ozarks, Jefferson City, Columbia, and Central Missouri. Licensed, locally operated. Call (573) 607-5910 for a free inspection.",
   alternates: { canonical: "https://crawlspacesolutionsmo.com" },
 }
 
@@ -64,6 +64,39 @@ export default function Home() {
 
       <Gallery />
       <Testimonials />
+
+      {/* Core Services Links — authority push */}
+      <section className="py-10 bg-background border-y border-border/50">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4 text-center">
+            Core Services
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <a
+              href="/services"
+              className="flex flex-col gap-1 p-4 rounded-md border border-border bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Crawl Space Repair</span>
+              <span className="text-xs text-muted-foreground">Moisture, mold, structural — we fix it all</span>
+            </a>
+            <a
+              href="/services"
+              className="flex flex-col gap-1 p-4 rounded-md border border-border bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Crawl Space Encapsulation</span>
+              <span className="text-xs text-muted-foreground">Complete sealing with heavy-duty vapor barrier</span>
+            </a>
+            <a
+              href="/services"
+              className="flex flex-col gap-1 p-4 rounded-md border border-border bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors group"
+            >
+              <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">Foundation Repair</span>
+              <span className="text-xs text-muted-foreground">Crack repair, stabilization, waterproofing</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <FAQ />
       <FinalCTA />
       <Footer />

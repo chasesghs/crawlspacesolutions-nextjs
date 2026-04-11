@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Phone, ChevronDown } from "lucide-react"
+import { Phone, ChevronDown, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const PHONE_NUMBER = "(573) 607-5910"
@@ -22,12 +22,12 @@ export function Hero() {
 
       {/* Subtle wave accent */}
       <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden pointer-events-none">
-        <svg 
+        <svg
           className="absolute bottom-0 left-0 w-full h-full opacity-10"
-          viewBox="0 0 1200 120" 
+          viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          <path 
+          <path
             className="fill-primary"
             d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z"
           />
@@ -37,30 +37,44 @@ export function Hero() {
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight">
-            Fix Your Crawl Space.
+            Crawl Space Problems?
             <br />
-            <span className="text-primary">Protect Your Home.</span>
+            <span className="text-primary">We Fix Them Right.</span>
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Professional crawl space repair, encapsulation, and moisture control for Central Missouri homeowners.
+            Crawl space repair, encapsulation, and moisture control for homeowners across Lake of the Ozarks, Jefferson City, Columbia, and Central Missouri.
           </p>
 
+          {/* Trust micro-line */}
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2 gap-y-1 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              Lake of the Ozarks · Jefferson City · Columbia
+            </span>
+            <span className="text-border/50">·</span>
+            <span>Free Inspections</span>
+            <span className="text-border/50">·</span>
+            <span>Licensed & Insured</span>
+          </div>
+
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button size="default" asChild className="w-full sm:w-auto text-sm px-6 py-5">
+            <Button size="default" asChild className="w-full sm:w-auto text-sm px-8 py-5 font-semibold shadow-md">
               <a href="/contact">
                 Schedule a Free Crawl Space Inspection
               </a>
             </Button>
-            <Button size="default" variant="outline" asChild className="w-full sm:w-auto text-sm px-6 py-5 border-border hover:bg-muted">
-              <a href="#services">
-                Our Services
+            <Button size="default" variant="outline" asChild className="w-full sm:w-auto text-sm px-6 py-5 border-border hover:bg-muted font-medium">
+              <a href={PHONE_HREF}>
+                <Phone className="h-4 w-4 mr-2" />
+                Call {PHONE_NUMBER}
               </a>
             </Button>
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            Prefer to call or text? <a href={PHONE_HREF} className="text-primary hover:underline">{PHONE_NUMBER}</a>
+            Or text photos of your crawl space for a fast opinion:{" "}
+            <a href={PHONE_HREF} className="text-primary hover:underline font-medium">{PHONE_NUMBER}</a>
           </p>
         </div>
       </div>
