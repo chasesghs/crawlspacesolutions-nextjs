@@ -39,7 +39,7 @@ export function Header() {
       <AnnouncementBar />
       <header className="sticky top-0 z-50 bg-background/98 backdrop-blur-md border-b border-border/30 shadow-sm">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
@@ -60,9 +60,7 @@ export function Header() {
                   href={link.href}
                   className="relative px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-foreground/70 hover:text-foreground transition-all duration-200 group"
                 >
-                  {/* Hover background */}
                   <span className="absolute inset-0 rounded-sm bg-transparent group-hover:bg-primary/15 transition-all duration-200" />
-                  {/* Border effect */}
                   <span className="absolute inset-0 rounded-sm border border-transparent group-hover:border-primary/40 group-hover:shadow-[0_0_8px_rgba(111,175,133,0.15)] transition-all duration-200" />
                   <span className="relative z-10">{link.label}</span>
                 </Link>
@@ -71,7 +69,7 @@ export function Header() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-2">
-              <a 
+              <a
                 href={ANGI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -80,10 +78,10 @@ export function Header() {
                 <span className="text-primary">Angi</span>
                 <span className="text-foreground/60">Reviews</span>
               </a>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                asChild 
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
                 className="text-xs text-foreground/70 hover:text-foreground hover:bg-primary/10 font-bold h-8"
               >
                 <a href={SMS_HREF}>
@@ -91,22 +89,37 @@ export function Header() {
                   Text
                 </a>
               </Button>
+              {/* Primary CTA — more prominent */}
               <Button size="sm" asChild className="font-bold shadow-md h-8 text-xs">
                 <a href={PHONE_HREF}>
                   <Phone className="mr-1.5 h-3.5 w-3.5" />
                   {PHONE_NUMBER}
                 </a>
               </Button>
+              <Button size="sm" asChild className="bg-primary hover:bg-primary/90 font-bold h-8 text-xs shadow-md">
+                <a href="/contact">
+                  Free Inspection
+                </a>
+              </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-foreground rounded hover:bg-primary/10 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Mobile: prominent Call CTA (visible without opening menu) */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <a
+                href={PHONE_HREF}
+                className="flex items-center gap-1.5 px-3 py-2 bg-primary text-primary-foreground rounded-lg font-semibold text-xs shadow-sm"
+              >
+                <Phone className="h-4 w-4" />
+                Call
+              </a>
+              <button
+                className="p-2 text-foreground rounded hover:bg-primary/10 transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -125,6 +138,11 @@ export function Header() {
                 ))}
               </nav>
               <div className="mt-4 pt-4 border-t border-border/30 flex flex-col gap-2">
+                <a href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  <Button size="sm" className="w-full font-semibold bg-primary hover:bg-primary/90">
+                    Schedule a Free Inspection
+                  </Button>
+                </a>
                 <Button size="sm" asChild className="w-full font-semibold">
                   <a href={PHONE_HREF}>
                     <Phone className="mr-2 h-4 w-4" />

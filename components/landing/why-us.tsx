@@ -1,4 +1,7 @@
-import { Check } from "lucide-react"
+import { Check, Phone } from "lucide-react"
+
+const PHONE_HREF = "tel:+15736075910"
+const PHONE_NUMBER = "(573) 607-5910"
 
 const reasons = [
   "You've tried ignoring it—but the smell keeps getting worse.",
@@ -13,7 +16,8 @@ export function WhyUs() {
   return (
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* 2-col grid: col 1 = heading, col 2 = reasons */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-6 lg:mb-8">
           <div>
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground">
               Why Homeowners Call Us
@@ -33,6 +37,17 @@ export function WhyUs() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA nudge — full width, natural placement */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="/contact" className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors">
+            Schedule a Free Inspection
+          </a>
+          <a href={PHONE_HREF} className="inline-flex items-center justify-center px-5 py-2.5 bg-card text-foreground font-medium text-sm rounded-lg border border-border hover:border-primary/30 transition-colors">
+            <Phone className="h-4 w-4 mr-2" />
+            Call {PHONE_NUMBER}
+          </a>
         </div>
       </div>
     </section>

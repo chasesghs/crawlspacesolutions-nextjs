@@ -1,4 +1,8 @@
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, ArrowRight } from "lucide-react"
+import Link from "next/link"
+
+const PHONE_HREF = "tel:+15736075910"
+const PHONE_NUMBER = "(573) 607-5910"
 
 const recommendations = [
   {
@@ -55,6 +59,28 @@ export function Recommendations() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Inline CTA nudge */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground mb-3">
+            Not sure what your crawl space needs? Schedule a free inspection — we&apos;ll tell you exactly.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Schedule a Free Inspection
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-card text-foreground font-medium text-sm rounded-lg border border-border hover:border-primary/30 transition-colors"
+            >
+              Call {PHONE_NUMBER}
+            </a>
+          </div>
         </div>
       </div>
     </section>
