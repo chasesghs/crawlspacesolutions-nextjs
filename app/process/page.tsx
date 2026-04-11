@@ -6,14 +6,15 @@ import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { MobileCTA } from "@/components/landing/mobile-cta"
 
-export const metadata: Metadata = {
-  title: "Our Process | Crawl Space Solutions Missouri",
-  description: "Learn about our simple 4-step process for crawl space repair and encapsulation. From free inspection to final walkthrough, we make it easy.",
-  keywords: "crawl space inspection, repair process, encapsulation process, free estimate, Central Missouri",
+export const metadata = {
+  title: "Our Process | Crawl Space Solutions",
+  description:
+    "Learn how Crawl Space Solutions handles crawl space repair and encapsulation — from your first call to final walkthrough. Simple 4-step process, free inspection, honest quotes.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com/process" },
   openGraph: {
-    title: "Our Process | Crawl Space Solutions Missouri",
-    description: "Learn about our simple 4-step process for crawl space repair and encapsulation.",
-    url: "https://crawlspacesolutionsmo.com/process",
+    title: "Our Process | Crawl Space Solutions",
+    description: "Learn how we handle crawl space repair and encapsulation — from your first call to final walkthrough.",
+    url: "/process",
     siteName: "Crawl Space Solutions",
     type: "website",
   },

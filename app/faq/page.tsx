@@ -12,14 +12,15 @@ import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { MobileCTA } from "@/components/landing/mobile-cta"
 
-export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Crawl Space Solutions Missouri",
-  description: "Get answers to common questions about crawl space encapsulation, vapor barriers, moisture control, and our services in Central Missouri.",
-  keywords: "crawl space FAQ, encapsulation questions, vapor barrier FAQ, moisture control, Central Missouri",
+export const metadata = {
+  title: "FAQ | Crawl Space Solutions",
+  description:
+    "Answers to common questions about crawl space repair, encapsulation, vapor barriers, and moisture control in Central Missouri.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com/faq" },
   openGraph: {
-    title: "Frequently Asked Questions | Crawl Space Solutions Missouri",
-    description: "Get answers to common questions about crawl space encapsulation, vapor barriers, and moisture control.",
-    url: "https://crawlspacesolutionsmo.com/faq",
+    title: "FAQ | Crawl Space Solutions",
+    description: "Common questions about crawl space repair, encapsulation, and moisture control answered.",
+    url: "/faq",
     siteName: "Crawl Space Solutions",
     type: "website",
   },

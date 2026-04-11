@@ -22,12 +22,12 @@ export function Hero() {
 
       {/* Subtle wave accent */}
       <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden pointer-events-none">
-        <svg 
+        <svg
           className="absolute bottom-0 left-0 w-full h-full opacity-10"
-          viewBox="0 0 1200 120" 
+          viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          <path 
+          <path
             className="fill-primary"
             d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z"
           />
@@ -43,14 +43,14 @@ export function Hero() {
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Encapsulation, moisture control, and repair for homes across Central Missouri — backed by honest quotes and real solutions.
+            Crawl space repair, encapsulation, and moisture control for homeowners across Lake of the Ozarks, Jefferson City, Columbia, and Central Missouri.
           </p>
 
           {/* Trust micro-line */}
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2 gap-y-1 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
               <MapPin className="h-3 w-3" />
-              Lake of the Ozarks · Osage Beach · Jefferson City
+              Lake of the Ozarks · Jefferson City · Columbia
             </span>
             <span className="text-border/50">·</span>
             <span>Free Inspections</span>

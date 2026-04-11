@@ -6,9 +6,18 @@ import { MobileCTA } from "@/components/landing/mobile-cta"
 import { Star, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const metadata: Metadata = {
-  title: "Customer Reviews",
-  description: "Read what Central Missouri homeowners say about Crawl Space Solutions. Reviews on Angi and Google cover our crawl space repair, encapsulation, drainage, and waterproofing services.",
+export const metadata = {
+  title: "Customer Reviews | Crawl Space Solutions",
+  description:
+    "Read verified reviews from Central Missouri homeowners on Angi and Google. Crawl Space Solutions — honest work, real results for crawl space repair and encapsulation.",
+  alternates: { canonical: "https://crawlspacesolutionsmo.com/reviews" },
+  openGraph: {
+    title: "Customer Reviews | Crawl Space Solutions",
+    description: "Verified homeowner reviews on Angi and Google for crawl space repair and encapsulation in Central Missouri.",
+    url: "/reviews",
+    siteName: "Crawl Space Solutions",
+    type: "website",
+  },
 }
 
 const ANGI_URL = "https://www.angi.com/companylist/us/mo/osage-beach/safeguard-home-solutions-reviews-1.htm"
