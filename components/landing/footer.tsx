@@ -18,10 +18,10 @@ export function Footer() {
           <div>
             <Link href="/">
               <Image
-                src="/images/logo-header.png"
+                src="/images/logo-header-cropped.png"
                 alt="Crawl Space Solutions"
-                width={240}
-                height={60}
+                width={220}
+                height={46}
                 className="h-12 w-auto"
               />
             </Link>
@@ -29,15 +29,25 @@ export function Footer() {
               Professional crawl space repair and encapsulation for Central Missouri homeowners. 
               Licensed, insured, and committed to doing the job right.
             </p>
-            {/* Angi Badge */}
-            <a 
-              href={ANGI_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-3 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
-            >
-              <span>Angi Certified Pro</span>
-            </a>
+            {/* Review Links */}
+            <div className="flex flex-col gap-2">
+              <a 
+                href={ANGI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
+              >
+                <span>Angi Certified Pro</span>
+              </a>
+              <a 
+                href={GOOGLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-primary border border-primary/30 rounded-sm hover:bg-primary/10 transition-colors"
+              >
+                <span>Read Google Reviews</span>
+              </a>
+            </div>
           </div>
 
           {/* Contact */}
