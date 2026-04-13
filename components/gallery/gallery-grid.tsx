@@ -15,22 +15,20 @@ import gallery13 from "@/public/images/gallery/gallery-13.jpg"
 import gallery14 from "@/public/images/gallery/gallery-14.jpg"
 
 const photos = [
-  // AFTER / COMPLETED
-  { src: gallery01, alt: "Complete crawlspace encapsulation — white vapor barrier covering floor and walls, clean sealed environment", caption: "Complete Encapsulation", location: "Barnett, MO", category: "Encapsulation", tag: "After" },
-  { src: gallery02, alt: "Full vapor barrier installation covering crawlspace floor — clean white liner fully installed", caption: "Full Vapor Barrier", location: "Cole Camp, MO", category: "Encapsulation", tag: "After" },
-  { src: gallery03, alt: "Clean access point into encapsulated crawlspace — organized and professional entry", caption: "Clean Access Point", location: "Versailles, MO", category: "Encapsulation", tag: "After" },
-  { src: gallery04, alt: "Foundation wall inspection — clean concrete block wall in dry crawlspace", caption: "Foundation Wall", location: "Eldon, MO", category: "Foundation", tag: "After" },
-  { src: gallery05, alt: "Interior drainage system in crawlspace — proper water management infrastructure", caption: "Interior Drainage", location: "Eldon, MO", category: "Drainage", tag: "After" },
-  { src: gallery06, alt: "Stone foundation wall — solid structural foundation with proper moisture control", caption: "Stone Foundation", location: "Waynesville, MO", category: "Foundation", tag: "After" },
-  { src: gallery07, alt: "Structural support beam with jack post — proper reinforcement in crawlspace", caption: "Structural Beam", location: "Eldon, MO", category: "Foundation", tag: "After" },
-  // BEFORE / PROBLEM
-  { src: gallery08, alt: "Crawlspace mold and efflorescence on wood floor joists — active moisture problem", caption: "Mold on Joists", location: "Eldon, MO", category: "Mold", tag: "Before" },
-  { src: gallery09, alt: "Standing water on crawlspace floor — active water intrusion requiring drainage solution", caption: "Standing Water", location: "Versailles, MO", category: "Water Intrusion", tag: "Before" },
-  { src: gallery10, alt: "Vertical foundation crack in concrete block wall — requires injection repair", caption: "Foundation Crack", location: "Sunrise Beach, MO", category: "Foundation", tag: "Before" },
-  { src: gallery11, alt: "Wood rot and sill plate damage in crawlspace — structural deterioration requiring repair", caption: "Wood Rot & Sill Plate", location: "California, MO", category: "Foundation", tag: "Before" },
-  { src: gallery12, alt: "Split floor joist — structural damage requiring sistering or replacement", caption: "Floor Joist Split", location: "California, MO", category: "Foundation", tag: "Before" },
-  { src: gallery13, alt: "Moisture damage and deterioration in crawlspace — needs remediation before encapsulation", caption: "Moisture Damage", location: "Jefferson City, MO", category: "Mold", tag: "Before" },
-  { src: gallery14, alt: "Vapor barrier coverage — partial installation showing clean materials ready for full encapsulation", caption: "Vapor Barrier Coverage", location: "Barnett, MO", category: "Encapsulation", tag: "After" },
+  { src: gallery01, alt: "Complete encapsulation with vapor barrier and white liner fully installed over crawlspace floor", caption: "Complete Encapsulation", location: "Cole Camp, MO", category: "Encapsulation" },
+  { src: gallery02, alt: "Encapsulated HVAC system with white liner and proper ductwork routing in crawlspace", caption: "Encapsulated HVAC", location: "Richland, MO", category: "Encapsulation" },
+  { src: gallery03, alt: "Dimpled membrane drainage layer over crawlspace floor before vapor barrier installation", caption: "Dimpled Membrane", location: "Barnett, MO", category: "Encapsulation" },
+  { src: gallery04, alt: "Professional access door installation into encapsulated crawlspace", caption: "Access Door", location: "Cole Camp, MO", category: "Encapsulation" },
+  { src: gallery05, alt: "Heavy-duty encapsulation with complete floor coverage and sealed walls", caption: "Heavy-Duty Installation", location: "Jefferson City, MO", category: "Encapsulation" },
+  { src: gallery06, alt: "Stone foundation wall in dry encapsulated crawlspace", caption: "Stone Foundation", location: "Jefferson City, MO", category: "Foundation" },
+  { src: gallery07, alt: "Dehumidifier installation during encapsulation project", caption: "Dehumidifier Install", location: "Sedalia, MO", category: "Encapsulation" },
+  { src: gallery08, alt: "Dimpled membrane and perimeter drainage layer being installed", caption: "Dimpled Membrane Install", location: "Barnett, MO", category: "Encapsulation" },
+  { src: gallery09, alt: "Concrete pad installation for support or equipment", caption: "Concrete Pad", location: "Warsaw, MO", category: "Foundation" },
+  { src: gallery10, alt: "HVAC ductwork properly encapsulated and insulated in crawlspace", caption: "HVAC Ductwork", location: "California, MO", category: "HVAC" },
+  { src: gallery11, alt: "AlorAir commercial dehumidifier installed in encapsulated crawlspace", caption: "AlorAir Dehumidifier", location: "Warsaw, MO", category: "Encapsulation" },
+  { src: gallery12, alt: "French drain installation along crawlspace perimeter", caption: "French Drain", location: "Waynesville, MO", category: "Drainage" },
+  { src: gallery13, alt: "Interior drain pipe installation for water management", caption: "Drain Pipe", location: "Versailles, MO", category: "Drainage" },
+  { src: gallery14, alt: "Vapor barrier coverage over crawlspace floor with sealed seams", caption: "Vapor Barrier", location: "Richland, MO", category: "Encapsulation" },
 ]
 
 export function GalleryGrid() {
@@ -48,7 +46,7 @@ export function GalleryGrid() {
 
       {/* Foundation */}
       <div>
-        <h2 className="text-lg font-semibold text-foreground mb-4">Foundation Repair</h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">Foundation</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {photos.filter(p => p.category === "Foundation").map((photo, i) => (
             <PhotoCard key={i} photo={photo} priority={false} />
@@ -56,11 +54,11 @@ export function GalleryGrid() {
         </div>
       </div>
 
-      {/* Water & Mold */}
+      {/* Drainage */}
       <div>
-        <h2 className="text-lg font-semibold text-foreground mb-4">Water Intrusion &amp; Mold</h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">Drainage</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {photos.filter(p => p.category === "Water Intrusion" || p.category === "Drainage" || p.category === "Mold").map((photo, i) => (
+          {photos.filter(p => p.category === "Drainage").map((photo, i) => (
             <PhotoCard key={i} photo={photo} priority={false} />
           ))}
         </div>
@@ -71,7 +69,7 @@ export function GalleryGrid() {
 
 function PhotoCard({ photo, priority }: { photo: typeof photos[0]; priority: boolean }) {
   return (
-    <div className="relative rounded-md overflow-hidden bg-card border border-border group">
+    <div className="relative rounded-md overflow-hidden bg-card border border-border">
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <Image
           src={photo.src}
@@ -81,18 +79,6 @@ function PhotoCard({ photo, priority }: { photo: typeof photos[0]; priority: boo
           sizes="(max-width: 768px) 50vw, 33vw"
           priority={priority}
         />
-        {/* Tag */}
-        <div className="absolute top-2 left-2">
-          <span
-            className={`inline-block px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded ${
-              photo.tag === "After"
-                ? "bg-primary/10 text-primary"
-                : "bg-destructive/10 text-destructive"
-            }`}
-          >
-            {photo.tag}
-          </span>
-        </div>
       </div>
       <div className="p-2.5">
         <p className="text-xs font-semibold text-foreground leading-tight">{photo.caption}</p>
