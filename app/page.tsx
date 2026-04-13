@@ -8,6 +8,7 @@ import { WhyUs } from "@/components/landing/why-us"
 import { Process } from "@/components/landing/process"
 import { Recommendations } from "@/components/landing/recommendations"
 import { Gallery } from "@/components/landing/gallery"
+import { OurWork } from "@/components/landing/our-work"
 import { Testimonials } from "@/components/landing/testimonials"
 import { FAQ } from "@/components/landing/faq"
 import { FinalCTA } from "@/components/landing/final-cta"
@@ -62,7 +63,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Gallery />
+      <OurWork />
       <Testimonials />
 
       {/* Core Services Links — authority push */}
