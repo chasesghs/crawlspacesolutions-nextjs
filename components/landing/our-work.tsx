@@ -1,43 +1,45 @@
-"use client"
-
 import Image from "next/image"
+import work01 from "@/public/images/our-work-01-after.jpg"
+import work02 from "@/public/images/our-work-02-after.jpg"
+import work03 from "@/public/images/our-work-03-before.jpg"
+import work04 from "@/public/images/our-work-04-before-crawl-eldon.jpg"
 
 const workItems = [
   {
-    src: "/images/our-work-01-after.jpg",
-    alt: "Complete crawlspace encapsulation with dehumidifier installed",
+    src: work01,
+    alt: "Complete crawlspace encapsulation with dehumidifier installed — clean white liner, organized plumbing, dry conditions",
     caption: "Complete Encapsulation + Dehumidifier",
     service: "Crawl Space Encapsulation",
     location: "Lake of the Ozarks, MO",
     tag: "After",
-    tagType: "after",
+    tagType: "after" as const,
   },
   {
-    src: "/images/our-work-02-after.jpg",
-    alt: "Professional vapor barrier installation on floor and walls",
+    src: work02,
+    alt: "Professional vapor barrier installation covering floor and walls — sealed, protected crawlspace environment",
     caption: "Professional Vapor Barrier Installation",
     service: "Crawl Space Encapsulation",
     location: "Central Missouri",
     tag: "After",
-    tagType: "after",
+    tagType: "after" as const,
   },
   {
-    src: "/images/our-work-03-before.png",
-    alt: "Neglected crawlspace with standing water and wet damaged insulation",
+    src: work03,
+    alt: "Neglected crawlspace with standing water, damaged wet insulation, and unresolved moisture issues",
     caption: "Neglected Crawlspace — Water Damage",
     service: "Water Intrusion Remediation",
     location: "Eldon, MO",
     tag: "Before",
-    tagType: "before",
+    tagType: "before" as const,
   },
   {
-    src: "/images/our-work-04-before-crawl-eldon.jpg",
-    alt: "Crawlspace with mold and efflorescence on structural joists",
+    src: work04,
+    alt: "Crawlspace with mold and efflorescence on structural floor joists — moisture problem requiring remediation",
     caption: "Mold Growth — Moisture Problem",
     service: "Mold Remediation + Encapsulation",
     location: "Eldon, MO",
     tag: "Before",
-    tagType: "before",
+    tagType: "before" as const,
   },
 ]
 
@@ -60,18 +62,19 @@ export function OurWork() {
           {workItems.map((item, index) => (
             <div
               key={index}
-              className="relative group rounded-md overflow-hidden bg-card border border-border"
+              className="relative rounded-md overflow-hidden bg-card border border-border"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+              {/* Image — priority on first 2, lazy on rest */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, 25vw"
+                  className="object-cover"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 320px"
+                  priority={index < 2}
                 />
-                {/* Tag */}
+                {/* Tag overlay */}
                 <div className="absolute top-2 left-2">
                   <span
                     className={`inline-block px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded ${
@@ -101,7 +104,7 @@ export function OurWork() {
           ))}
         </div>
 
-        {/* Footer note + CTA nudge */}
+        {/* Footer */}
         <div className="mt-6 text-center">
           <p className="text-xs text-muted-foreground">
             Photos from actual jobs in the Lake of the Ozarks &amp; Central Missouri region.
