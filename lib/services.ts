@@ -121,6 +121,13 @@ export const services = [
       "Peace of mind during heavy rain",
     ],
     relatedServices: ["drainage-systems", "crawl-space-encapsulation", "foundation-repair"],
+    signs: [
+      "Standing water in crawl space after rain",
+      "Musty smell that gets worse after storms",
+      "Wet floors or cold floors in rooms above",
+      "Sump pit that's never been installed or is dry",
+      "High humidity reading in the crawl space",
+    ],
   },
   {
     slug: "foundation-repair",
@@ -145,6 +152,13 @@ export const services = [
       "Documented repair for real estate disclosures",
     ],
     relatedServices: ["crawl-space-encapsulation", "drainage-systems", "sump-pump-installation"],
+    signs: [
+      "Cracks visible in interior walls or floors",
+      "Doors or windows that won't close properly",
+      "Gaps appearing between floor and wall",
+      "Tilting or bowing foundation walls",
+      "Sagging or bouncy floors",
+    ],
   },
 ] as const
 

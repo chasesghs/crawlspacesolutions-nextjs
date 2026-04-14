@@ -1,5 +1,6 @@
 import { cities } from "@/lib/cities"
 import { services, localizableServices } from "@/lib/services"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -62,6 +63,8 @@ export default async function CityServicePage({ params }: Props) {
               <Link href="/services" className="hover:text-primary">Services</Link>
               <span>/</span>
               <span>{city.name}</span>
+              <span>/</span>
+              <span className="text-foreground">{svc.shortName}</span>
             </nav>
 
             <h1 className="font-[family-name:var(--font-display)] text-2xl md:text-4xl font-bold text-foreground mb-3">
@@ -71,12 +74,12 @@ export default async function CityServicePage({ params }: Props) {
               {city.intro}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Schedule a Free Inspection
-              </a>
+              </Link>
               <a
                 href="tel:+15736075910"
                 className="inline-flex items-center justify-center px-6 py-3 bg-card text-foreground font-medium text-sm rounded-lg border border-border hover:border-primary/30 transition-colors"
@@ -155,6 +158,23 @@ export default async function CityServicePage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+
+                {/* Signs / when to consider — shown for services that have it */}
+                {"signs" in svc && Array.isArray(svc.signs) && svc.signs.length > 0 && (
+                  <div>
+                    <h2 className="text-xl font-semibold text-foreground mb-4">
+                      Signs You May Need {svc.shortName}
+                    </h2>
+                    <ul className="space-y-2">
+                      {svc.signs.map((sign, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          {sign}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Sidebar */}
@@ -167,12 +187,12 @@ export default async function CityServicePage({ params }: Props) {
                   <p className="text-xs text-muted-foreground mb-4">
                     Free inspection in {city.name}. We&apos;ll tell you exactly what your crawl space needs.
                   </p>
-                  <a
+                  <Link
                     href="/contact"
                     className="inline-flex w-full items-center justify-center px-4 py-2.5 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors"
                   >
                     Schedule Inspection
-                  </a>
+                  </Link>
                   <a
                     href="tel:+15736075910"
                     className="inline-flex w-full items-center justify-center px-4 py-2.5 mt-2 text-sm text-foreground font-medium border border-border rounded-lg hover:border-primary/30 transition-colors"
@@ -204,14 +224,6 @@ export default async function CityServicePage({ params }: Props) {
                       )
                     })}
                   </ul>
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <Link
-                      href={`/${citySlug}/crawl-space-encapsulation`}
-                      className="text-xs text-muted-foreground hover:text-primary"
-                    >
-                      View all {city.name} services →
-                    </Link>
-                  </div>
                 </div>
 
                 {/* City nav */}
@@ -246,12 +258,12 @@ export default async function CityServicePage({ params }: Props) {
             <p className="text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
               Every {svc.shortName.toLowerCase()} project starts with a free inspection. No obligation, no pressure — just an honest answer about what your home needs.
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:bg-primary/90 transition-colors"
             >
               Schedule a Free Inspection
-            </a>
+            </Link>
           </div>
         </section>
       </main>

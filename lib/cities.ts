@@ -6,7 +6,7 @@ export const cities = [
     displayName: "Osage Beach",
     region: "Lake of the Ozarks",
     intro: "The Lake of the Ozarks area sees high humidity and moisture from the water table — crawl spaces here absorb ambient moisture year-round, not just after heavy rain. Many homes built near the shoreline have dirt-floor crawlspaces with no vapor barrier, making them especially vulnerable.",
-    whatWeSee: "Homes near the lake often have crawl spaces with no vapor barrier, standing water after rain events, and ventilation that's working against them rather than for them. We also see a lot of脱口 water from shoreline grading.",
+    whatWeSee: "Homes near the lake often have crawl spaces with no vapor barrier, standing water after rain events, and ventilation that's working against them rather than for them. We also see a lot of runoff water from shoreline grading.",
     whyHappens: "Lake proximity means consistently high ambient humidity. During summer months especially, that moisture pulls into unconditioned crawl spaces and condenses on cool surfaces. Add in sometimes-poor grading that drains toward the foundation, and you have a persistent moisture problem.",
     soilNote: "The lake-area soil tends to be clay-heavy, which slows surface drainage and keeps groundwater elevated.",
   },
