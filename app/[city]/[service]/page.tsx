@@ -3,11 +3,10 @@ import { services, localizableServices } from "@/lib/services"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-import Link from "next/link"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { MobileCTA } from "@/components/landing/mobile-cta"
-import { CheckCircle, Droplets, Phone, ArrowRight } from "lucide-react"
+import { CheckCircle, Phone, ArrowRight } from "lucide-react"
 
 type Props = {
   params: Promise<{ city: string; service: string }>
