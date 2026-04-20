@@ -1,9 +1,11 @@
 import { MetadataRoute } from "next"
+import { cities } from "@/lib/cities"
+import { services } from "@/lib/services"
 
 const SITE_URL = "https://crawlspacesolutionsmo.com"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
       lastModified: new Date(),
@@ -15,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/gallery`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${SITE_URL}/process`,
@@ -41,4 +49,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
   ]
+
+  // City + Service pages
+  const cityServicePages: MetadataRoute.Sitemap = []
+  for (const city of cities) {
+    for (const service of services) {
+      cityServicePages.push({
+        url: `${SITE_URL}/${city.slug}/${service.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+      })
+    }
+  }
+
+  return [...staticPages, ...cityServicePages]
 }
